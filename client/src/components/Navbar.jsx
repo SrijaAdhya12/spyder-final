@@ -34,11 +34,13 @@ export default function Navbar() {
 					</Link>
 				</nav>
 				<div className="flex items-center space-x-4">
+					<Link to="/profile">
 					<Button variant="ghost" size="sm">
 						<User className="mr-2 h-4 w-4" />
 						Profile
 					</Button>
 					<Button size="sm">Start Swapping</Button>
+					</Link>
 				</div>
 			</div>
 		</header>
