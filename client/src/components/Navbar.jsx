@@ -39,8 +39,8 @@ export default function Navbar() {
 						<User className="mr-2 h-4 w-4" />
 						Profile
 					</Button>
-					<Button size="sm">Start Swapping</Button>
 					</Link>
+					<Button size="sm">Start Swapping</Button>
 				</div>
 			</div>
 		</header>

@@ -7,7 +7,7 @@ const AppRouter = () => {
 	return (
 		<Routes location={location}>
 			<Route path="/" element={<Home />} />
-			<Route path="/Leaderboard" element={<LeaderBoard />} />
+			<Route path="/leaderboard" element={<LeaderBoard />} />
 			<Route path="/quick-swap" element={<QuickSWap />} />
 			<Route path="/skill-map" element={<SkillMap />} />
 			<Route path="/profile" element={<Profile />} />

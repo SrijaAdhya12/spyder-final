@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShuffleIcon as Swap } from "lucide-react";
-
+import {Link} from "react-router"
 export default function Hero() {
 	return (
 		<section className="container flex min-h-[calc(100vh-3.5rem)] max-w-screen-2xl flex-col items-center justify-center space-y-8 py-24 text-center md:py-32">
@@ -17,10 +17,12 @@ export default function Hero() {
 				</p>
 			</div>
 			<div className="flex gap-4">
-				<Button size="lg">
-					Find a Skill Swap
-					<Swap className="ml-2 h-4 w-4" />
-				</Button>
+				<Link to="/quick-swap">
+					<Button size="lg">
+						Find a Skill Swap
+						<Swap className="ml-2 h-4 w-4" />
+					</Button>
+				</Link>
 				<Button variant="outline" size="lg">
 					How It Works
 					<ArrowRight className="ml-2 h-4 w-4" />
