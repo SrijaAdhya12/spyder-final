@@ -35,12 +35,14 @@ export default function Navbar() {
 				</nav>
 				<div className="flex items-center space-x-4">
 					<Link to="/profile">
-					<Button variant="ghost" size="sm">
-						<User className="mr-2 h-4 w-4" />
-						Profile
-					</Button>
+						<Button variant="ghost" size="sm">
+							<User className="mr-2 h-4 w-4" />
+							Profile
+						</Button>
 					</Link>
-					<Button size="sm">Start Swapping</Button>
+					<a href="#skill-map">
+						<Button size="sm">Start Swapping</Button>
+					</a>
 				</div>
 			</div>
 		</header>

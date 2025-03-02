@@ -10,7 +10,7 @@ const dummyUsers = [
 
 const SkillMap = () => {
 	return (
-		<section className="container py-24 md:py-32">
+		<section id="skill-map" className="container py-24 md:py-32">
 			<h2 className="text-3xl font-bold mb-8">Skill Map</h2>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{dummyUsers.map((user) => (
