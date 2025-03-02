@@ -1,9 +1,15 @@
+import { Footer, Navbar } from "@/components";
 import { Button } from "@/components/ui/button";
+import { CTA, Features, Hero, SkillMap } from "@/sections";
 const Home = () => {
   return (
 		<div>
-			Home
-			<Button variant="outline">Click me</Button>
+		  <Navbar />
+		  <Hero />
+		  <Features />
+		  <SkillMap/>
+		  <CTA />
+		  <Footer/>
 		</div>
 	);
 };
