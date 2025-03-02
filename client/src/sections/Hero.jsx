@@ -19,7 +19,7 @@ export default function Hero() {
 			<div className="flex gap-4">
 				<Link to="/quick-swap">
 					<Button size="lg">
-						Find a Skill Swap
+						Skill Swap
 						<Swap className="ml-2 h-4 w-4" />
 					</Button>
 				</Link>
