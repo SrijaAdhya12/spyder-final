@@ -1,115 +1,78 @@
+"use client";
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Mail, MapPin, Briefcase, Calendar } from "lucide-react";
 
-function Profile() {
-	const [skills, setSkills] = useState([""]);
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm();
-
-	const onSubmit = (data) => {
-		console.log(data);
-		// Here you would typically send the data to your backend
-	};
-
-	const addSkill = () => {
-		setSkills([...skills, ""]);
+export default function Profile() {
+	// Dummy profile data
+	const profile = {
+		name: "Alex Johnson",
+		role: "Senior Software Engineer",
+		email: "alex.johnson@example.com",
+		location: "San Francisco, CA",
+		joinDate: "Joined March 2021",
+		bio: "Passionate software engineer with expertise in React, Node.js, and cloud architecture. I enjoy solving complex problems and building scalable applications.",
+		skills: ["React", "TypeScript", "Node.js", "AWS", "GraphQL", "Docker"],
+		avatarUrl: "/placeholder.svg?height=400&width=400",
 	};
 
 	return (
 		<section className="container mx-auto py-12">
-			<h2 className="text-3xl font-bold mb-8">Your Profile</h2>
-			<form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto">
-				<div className="mb-4">
-					<label htmlFor="name" className="block mb-2">
-						Name
-					</label>
-					<input
-						type="text"
-						id="name"
-						{...register("name", { required: "Name is required" })}
-						className="w-full p-2 border rounded"
-					/>
-					{errors.name && (
-						<p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-					)}
-				</div>
-
-				<div className="mb-4">
-					<label htmlFor="email" className="block mb-2">
-						Email
-					</label>
-					<input
-						type="email"
-						id="email"
-						{...register("email", {
-							required: "Email is required",
-							pattern: {
-								value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-								message: "Invalid email address",
-							},
-						})}
-						className="w-full p-2 border rounded"
-					/>
-					{errors.email && (
-						<p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-					)}
-				</div>
-
-				<div className="mb-4">
-					<label className="block mb-2">Skills</label>
-					{skills.map((skill, index) => (
-						<div key={index} className="mb-2">
-							<input
-								type="text"
-								{...register(`skills.${index}`, {
-									required: "Skill is required",
-								})}
-								className="w-full p-2 border rounded"
-							/>
-							{errors.skills && errors.skills[index] && (
-								<p className="text-red-500 text-sm mt-1">
-									{errors.skills[index].message}
-								</p>
-							)}
+			<Card className="max-w-2xl mx-auto">
+				<CardHeader className="pb-0">
+					<div className="flex flex-col items-center space-y-4">
+						<Avatar className="h-24 w-24">
+							<AvatarImage src={profile.avatarUrl} alt={profile.name} />
+							<AvatarFallback>
+								{profile.name
+									.split(" ")
+									.map((n) => n[0])
+									.join("")}
+							</AvatarFallback>
+						</Avatar>
+						<div className="text-center space-y-1">
+							<h2 className="text-2xl font-bold">{profile.name}</h2>
+							<p className="text-muted-foreground flex items-center justify-center gap-1">
+								<Briefcase className="h-4 w-4" />
+								{profile.role}
+							</p>
+							<div className="flex items-center justify-center text-sm text-muted-foreground gap-4">
+								<span className="flex items-center gap-1">
+									<Mail className="h-4 w-4" />
+									{profile.email}
+								</span>
+								<span className="flex items-center gap-1">
+									<MapPin className="h-4 w-4" />
+									{profile.location}
+								</span>
+							</div>
+							<p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
+								<Calendar className="h-4 w-4" />
+								{profile.joinDate}
+							</p>
 						</div>
-					))}
-					<button
-						type="button"
-						onClick={addSkill}
-						className="text-blue-500 mt-2"
-					>
-						+ Add another skill
-					</button>
-				</div>
+					</div>
+				</CardHeader>
+				<CardContent className="pt-6 space-y-6">
+					<div>
+						<h3 className="text-lg font-semibold mb-2">About</h3>
+						<p className="text-muted-foreground">{profile.bio}</p>
+					</div>
 
-				<div className="mb-4">
-					<label htmlFor="bio" className="block mb-2">
-						Bio
-					</label>
-					<textarea
-						id="bio"
-						{...register("bio", { required: "Bio is required" })}
-						className="w-full p-2 border rounded"
-						rows="4"
-					></textarea>
-					{errors.bio && (
-						<p className="text-red-500 text-sm mt-1">{errors.bio.message}</p>
-					)}
-				</div>
-
-				<button
-					type="submit"
-					className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
-				>
-					Save Profile
-				</button>
-			</form>
+					<div>
+						<h3 className="text-lg font-semibold mb-2">Skills</h3>
+						<div className="flex flex-wrap gap-2">
+							{profile.skills.map((skill, index) => (
+								<Badge key={index} variant="secondary">
+									{skill}
+								</Badge>
+							))}
+						</div>
+					</div>
+				</CardContent>
+			</Card>
 		</section>
 	);
 }
-
-export default Profile;
