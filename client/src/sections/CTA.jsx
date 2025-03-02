@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-
+import {Link} from "react-router"
 export default function CTA() {
 	return (
 		<section className="border-t">
@@ -11,9 +11,11 @@ export default function CTA() {
 					Join our community of lifelong learners and start trading skills
 					today. Unlock new opportunities and grow your network with Skill Swap.
 				</p>
-				<Button size="lg" className="mt-4">
-					Create Your Profile
-				</Button>
+				<Link to="/profile">
+					<Button size="lg" className="mt-4">
+						Create Your Profile
+					</Button>
+				</Link>
 			</div>
 		</section>
 	);
