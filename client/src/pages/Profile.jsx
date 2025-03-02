@@ -1,5 +1,5 @@
-"use client";
 
+import { FaCoins } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -34,6 +34,9 @@ export default function Profile() {
 						</Avatar>
 						<div className="text-center space-y-1">
 							<h2 className="text-2xl font-bold">{profile.name}</h2>
+							<span className="font-bold flex items-center justify-center gap-2">
+								<FaCoins /> 1000
+							</span>
 							<p className="text-muted-foreground flex items-center justify-center gap-1">
 								<Briefcase className="h-4 w-4" />
 								{profile.role}
